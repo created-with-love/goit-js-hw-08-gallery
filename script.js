@@ -76,23 +76,17 @@ function onBackdropClick(evt) {
 // Код для пролистования картинок при нажатии вправо-влево на клавиатуре с открым модальным окном
 
 function arrowImagesSwitch(e) {
-  window.addEventListener('keydown', onRightArrowClick);
-  window.addEventListener('keydown', onLeftArrowClick);
   const imagesSrcArray = images.map(image => image.original);
   const indexOfCurrentImg = imagesSrcArray.indexOf(modalImageEl.src);
 
-  function onRightArrowClick(evt) {
-    if (evt.code === 'ArrowRight') {
-      if (indexOfCurrentImg < imagesSrcArray.length - 1)
-        modalImageEl.src = imagesSrcArray[Number(indexOfCurrentImg) + 1];
-    }
+  if (e.code === 'ArrowRight') {
+    if (indexOfCurrentImg < imagesSrcArray.length - 1)
+      modalImageEl.src = imagesSrcArray[Number(indexOfCurrentImg) + 1];
   }
 
-  function onLeftArrowClick(evt) {
-    if (evt.code === 'ArrowLeft') {
-      if (indexOfCurrentImg > 0) {
-        modalImageEl.src = imagesSrcArray[Number(indexOfCurrentImg) - 1];
-      }
+  if (e.code === 'ArrowLeft') {
+    if (indexOfCurrentImg > 0) {
+      modalImageEl.src = imagesSrcArray[Number(indexOfCurrentImg) - 1];
     }
   }
 }
