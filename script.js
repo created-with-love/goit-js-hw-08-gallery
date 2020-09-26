@@ -11,8 +11,9 @@ const makeImagesMarkUp = function (image) {
     href=${original}
   >
     <img
-      class="gallery__image"
-      src=${preview}
+      loading="lazy"
+      class="gallery__image lazyload"
+      data-src="${preview}"
       data-source=${original}
       alt="${description}"
     />
@@ -41,6 +42,7 @@ function onImageLinkClick(event) {
   modalImageEl.src = imgFullUrl;
   modalImageEl.alt = altTextFromImg;
   modalWindow.classList.add('is-open');
+  modalImageEl.classList.add('appear');
 
   window.addEventListener('keydown', arrowImagesSwitch);
 }
