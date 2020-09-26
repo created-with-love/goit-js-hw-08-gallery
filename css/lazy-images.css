@@ -1,10 +1,10 @@
 img {
-  transform: translateX(-50%);
+  transform: scale(0.8);
   opacity: 0;
   transition: all 500ms linear;
 }
 
 img.appear {
-  transform: translateX(0);
+  transform: scale(1);
   opacity: 1;
 }
